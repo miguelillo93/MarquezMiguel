@@ -10,7 +10,7 @@ public class Fecha {
 		this.mes = mes;
 		this.anio = anio;
 	}
-	
+
 	public boolean valida() {
 		if (dia < 1 || dia > 31)
 			return false;
@@ -43,13 +43,20 @@ public class Fecha {
 			diasMes = 30;
 			break;
 		case 2:
-			if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0)))
+			if (bisiesto())
 				diasMes = 29;
 			else
 				diasMes = 28;
 			break;
 		}
 		return diasMes;
+	}
+
+	private boolean bisiesto() {
+		if ((anio % 400 == 0) || ((anio % 4 == 0) && (anio % 100 != 0)))
+			return true;
+		else
+			return false;
 	}
 
 	public static void main(String[] args) throws IOException {
