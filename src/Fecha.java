@@ -10,7 +10,7 @@ public class Fecha {
 		this.mes = mes;
 		this.anio = anio;
 	}
-
+	
 	public boolean valida() {
 		if (dia < 1 || dia > 31)
 			return false;
